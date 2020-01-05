@@ -1,50 +1,33 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import BlockContent from '@sanity/block-content-to-react';
+import {
+  // Link, useStaticQuery, 
+  graphql
+} from "gatsby";
 import Layout from "../components/layout";
-import Image from "../components/image";
+// import Image from "../components/image";
 import SEO from "../components/seo";
-import { getColor } from "../utils";
-import { Centered } from "../styles/containers";
+// import { Centered } from "../styles/containers";
+import { renderFlexibleContent } from "../utils/renderFlexibleContent";
 
+export const query = graphql`
+  query HomePageQuery {
+    pageData: sanityHome {
+      _rawSection(resolveReferences: {maxDepth: 5})
+    }
+  }
+`;
 
-
-
-const color = props => {
-  const { mark } = props;
-  const finalColor = getColor(mark);;
-  return (
-    <span style={{ color: finalColor }}>
-      {props.children}
-    </span>
-  );
-};
-
-const centeredText = props => {
-  console.error(props);
-  return (
-    <Centered>
-      <BlockContent blocks={props.node.content} serializers={{ marks: { color } }} />
-    </Centered>
-  );
-};
-
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-      query MyQuery {
-        sanityHome {
-        _rawCenteredText
-      }
-      }
-      `);
-  console.error(data);
+const IndexPage = ({ data }) => {
+  const section = data.pageData ? data.pageData._rawSection : null;
+  // console.error(data);
   return (
     <Layout>
       <SEO title="Home" />
-      <BlockContent blocks={data.sanityHome._rawCenteredText} serializers={{ types: { centeredText } }} />
+      {section && renderFlexibleContent(section.sections)}
+      {/* <BlockContent blocks={data.sanityHome._rawCenteredText} serializers={{ types: { centeredText } }} /> */}
       {/* <Image /> */}
       {/* <Link to="/page-2/">Go to page 2</Link> */}
     </Layout>
   );
 };
-export default IndexPage;;
+export default IndexPage;

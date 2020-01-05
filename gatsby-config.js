@@ -4,12 +4,16 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Salsa`,
+    description: `Dev preview.`,
+    author: `@DmitryTkachenko`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [ `/preview/*` ] },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,7 +38,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: '7bn5qffm',
+        projectId: process.env.PROJECT_ID,
         dataset: process.env.DATABASE_NAME,
         overlayDrafts: true,
         watchMode: true,
