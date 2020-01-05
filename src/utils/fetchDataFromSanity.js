@@ -2,7 +2,8 @@ import { client } from "./sanityClient";
 const query = `*[_id == $pageId]`;
 
 export const fetchDataFromSanity = (pageId, isDraft) => {
-    const params = { pageId };
+
+    const params = { pageId: isDraft ? `drafts.${pageId}` : pageId };
 
     return client.fetch(query, params).then(data => data[ 0 ].section);
 };
