@@ -42,3 +42,7 @@ export const Column = styled.div`
         width: ${props => `calc(100% / ${props.length} - 30px)`};
     }
 `;
+
+export const AlignedContainer = styled.div`
+    text-align: ${props => props.align ? props.align : 'inherit'}
+`;
