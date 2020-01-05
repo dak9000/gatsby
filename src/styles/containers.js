@@ -31,7 +31,6 @@ export const Container = styled.section`
 `;
 
 export const Column = styled.div`
-    border: 2px solid red;
     margin: 15px;
     min-width: 0;
     max-width: 100%;
