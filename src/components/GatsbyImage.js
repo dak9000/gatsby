@@ -23,7 +23,7 @@ const GatsbyImage = ({ alt, asset: { _ref, _id: imageAssetId } }) => {
     if (_ref && !fluidProps) {
         return <img src={urlFor(_ref).url()} alt={alt} />;
     }
-    const fluidProps = getFluidGatsbyImage(imageAssetId, { maxWidth: 1024 }, sanityConfig);
+    const fluidProps = getFluidGatsbyImage(imageAssetId, { maxWidth: 400 }, sanityConfig);
     return <Img fluid={fluidProps} />;
 };
 
