@@ -2,12 +2,14 @@ import React from 'react';
 import { Divider } from '../styles/primitives';
 import { Container, Column } from '../styles/containers';
 import Wysiwyg from '../components/Wysiwyg';
+import GatsbyImage from '../components/GatsbyImage';
 
 const components = {
     divider: Divider,
     row: Container,
     column: Column,
-    wysiwyg: Wysiwyg
+    wysiwyg: Wysiwyg,
+    gatsbyImage: GatsbyImage,
 };
 
 let length;

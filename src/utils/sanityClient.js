@@ -1,6 +1,6 @@
 const TOKEN = 'skt3MPKXXmUTjqussyrUDUvAEe5DLbV33bkq87eeWIlGuhtmSzI40546gxSAUSLbvU7NkwFxCY3maaFm61ibHYNlO6OnpO4Jt2cikQ9VRsyDIxa5mJ8LSr00DWsyPpuiFqy5khxzuqZpDypf2OnlEz1bhrNq9rCuxoGe4xFUIi6StlcDKUWr';
-const DATABASE_NAME = 'production';
-const PROJECT_ID = '7bn5qffm';
+export const DATABASE_NAME = 'production';
+export const PROJECT_ID = '7bn5qffm';
 
 const sanityClient = require('@sanity/client');
 

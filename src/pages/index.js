@@ -12,7 +12,7 @@ import { renderFlexibleContent } from "../utils/renderFlexibleContent";
 export const query = graphql`
   query HomePageQuery {
     pageData: sanityHome {
-      _rawSection(resolveReferences: {maxDepth: 5})
+      _rawSection(resolveReferences: {maxDepth: 10})
     }
   }
 `;
