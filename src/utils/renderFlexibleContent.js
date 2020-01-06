@@ -15,7 +15,7 @@ const components = {
 let length;
 export const renderFlexibleContent = (sections) => {
     return sections.map((section, i) => {
-        if (section._type === 'row') {
+        if (section._type === 'row' && section.fields) {
             length = section.fields.sections.length;
         }
         if (!section._type) {
