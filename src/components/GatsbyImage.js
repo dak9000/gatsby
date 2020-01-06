@@ -20,11 +20,11 @@ const sanityConfig = { projectId: PROJECT_ID, dataset: DATABASE_NAME };
 
 
 const GatsbyImage = ({ alt, asset: { _ref, _id: imageAssetId } }) => {
+    const fluidProps = getFluidGatsbyImage(imageAssetId, { maxWidth: 400 }, sanityConfig);
     if (_ref && !fluidProps) {
         return <img src={urlFor(_ref).url()} alt={alt} />;
     }
-    const fluidProps = getFluidGatsbyImage(imageAssetId, { maxWidth: 400 }, sanityConfig);
-    return <Img fluid={fluidProps} />;
+    return <Img alt={alt} fluid={fluidProps} />;
 };
 
 export default GatsbyImage;
