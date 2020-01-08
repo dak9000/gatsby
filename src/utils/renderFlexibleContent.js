@@ -13,7 +13,10 @@ const components = {
 };
 
 let length;
-export const renderFlexibleContent = (sections) => {
+let imagesData;
+
+export const renderFlexibleContent = (sections, images = null) => {
+    if (images !== null) imagesData = images;
     return sections.map((section, i) => {
         if (section._type === 'row' && section.fields) {
             length = section.fields.sections.length;
@@ -42,7 +45,14 @@ export const renderFlexibleContent = (sections) => {
         //   ? renderFlexibleContent(section.fields.sections)
         //   : null;
 
-        const props = section._type === 'column' ? { ...section, length } : { ...section };
+        let props = section._type === 'column' ? { ...section, length } : { ...section };
+        if (section._type === 'column') {
+            props = { ...section, length };
+        } else if (section._type === 'gatsbyImage') {
+            props = { ...section, imagesData };
+        } else {
+            props = { ...section };
+        }
         return (
             <Component {...props} key={i}>
                 {children}

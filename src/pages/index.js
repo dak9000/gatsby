@@ -13,20 +13,25 @@ export const query = graphql`
   query HomePageQuery {
     pageData: sanityHome {
       _rawSection(resolveReferences: {maxDepth: 10})
+    },
+    images: allSanityImageAsset {
+      nodes {
+        id
+        fluid(maxWidth: 400) {
+          ...GatsbySanityImageFluid
+        }
+      }
     }
   }
 `;
 
 const IndexPage = ({ data }) => {
   const section = data.pageData ? data.pageData._rawSection : null;
-  // console.error(data);
+
   return (
     <Layout>
       <SEO title="Home" />
-      {section && renderFlexibleContent(section.sections)}
-      {/* <BlockContent blocks={data.sanityHome._rawCenteredText} serializers={{ types: { centeredText } }} /> */}
-      {/* <Image /> */}
-      {/* <Link to="/page-2/">Go to page 2</Link> */}
+      {section && renderFlexibleContent(section.sections, data.images.nodes)}
     </Layout>
   );
 };

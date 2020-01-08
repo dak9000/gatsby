@@ -19,8 +19,16 @@ const sanityConfig = { projectId: PROJECT_ID, dataset: DATABASE_NAME };
 
 
 
-const GatsbyImage = ({ alt, asset: { _ref, _id: imageAssetId } }) => {
-    const fluidProps = getFluidGatsbyImage(imageAssetId, { maxWidth: 400 }, sanityConfig);
+const GatsbyImage = ({ alt, asset: { _ref, _id: imageAssetId }, imagesData }) => {
+    let fluidProps = null;
+    if (imagesData) {
+        imagesData.filter(data => {
+            if (data.id === imageAssetId) {
+                fluidProps = data.fluid;
+            }
+        });
+
+    }
     if (_ref && !fluidProps) {
         return <img src={urlFor(_ref).url()} alt={alt} />;
     }
