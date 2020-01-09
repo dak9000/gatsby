@@ -3,6 +3,7 @@ import { Divider } from '../styles/primitives';
 import { Container, Column } from '../styles/containers';
 import Wysiwyg from '../components/Wysiwyg';
 import GatsbyImage from '../components/GatsbyImage';
+import Button from '../components/Button';
 
 const components = {
     divider: Divider,
@@ -10,6 +11,7 @@ const components = {
     column: Column,
     wysiwyg: Wysiwyg,
     gatsbyImage: GatsbyImage,
+    button: Button,
 };
 
 let length;

@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     margin: 0;
     padding: 0;
-    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
   }
   h1 {
     font-size: 3.5rem;
@@ -51,11 +51,12 @@ export const GlobalStyle = createGlobalStyle`
   p {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    margin-bottom: 1.5rem;
     padding: 0;
   }
   span,
   strong,
   em {
-    display: inline-block;
+    display: inline;
   }
 `;
