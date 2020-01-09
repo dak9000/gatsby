@@ -2,6 +2,7 @@ import * as queryString from 'query-string';
 import React from 'react';
 import { fetchDataFromSanity, subscribeToData } from '../../utils/fetchDataFromSanity';
 import { renderFlexibleContent } from '../../utils/renderFlexibleContent';
+import Layout from '../../components/layout';
 
 class PageTemplate extends React.Component {
     state = {
@@ -45,7 +46,12 @@ class PageTemplate extends React.Component {
         const query = queryString.parse(this.props.location.search);
         const { data, isLoading } = this.state;
         // return <h1>works</h1>;
-        return !isLoading && renderFlexibleContent(data.sections);
+        return (
+            <Layout>
+                {!isLoading && renderFlexibleContent(data.sections)}
+            </Layout>
+        );
+
     }
 };
 export default PageTemplate;
