@@ -8,5 +8,5 @@ export const client = sanityClient({
     projectId: PROJECT_ID,
     dataset: DATABASE_NAME,
     token: TOKEN, // or leave blank to be anonymous user
-    useCdn: true // `false` if you want to ensure fresh data
+    useCdn: false // `false` if you want to ensure fresh data
 });
