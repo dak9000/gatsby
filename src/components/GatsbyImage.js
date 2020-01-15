@@ -1,7 +1,5 @@
 import React from 'react';
-import { PROJECT_ID, DATABASE_NAME } from '../utils/sanityClient';
 import Img from 'gatsby-image';
-import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import { client } from '../utils/sanityClient';
 import imageUrlBuilder from '@sanity/image-url';
 
@@ -15,8 +13,6 @@ function urlFor(source) {
     return builder.image(source);
 }
 
-const sanityConfig = { projectId: PROJECT_ID, dataset: DATABASE_NAME };
-
 
 
 const GatsbyImage = ({ alt, asset: { _ref, _id: imageAssetId }, imagesData }) => {
@@ -26,6 +22,7 @@ const GatsbyImage = ({ alt, asset: { _ref, _id: imageAssetId }, imagesData }) =>
             if (data.id === imageAssetId) {
                 fluidProps = data.fluid;
             }
+            return false;
         });
 
     }

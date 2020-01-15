@@ -43,9 +43,7 @@ class PageTemplate extends React.Component {
     }
 
     render() {
-        const query = queryString.parse(this.props.location.search);
         const { data, isLoading } = this.state;
-        // return <h1>works</h1>;
         return (
             <Layout>
                 {!isLoading && renderFlexibleContent(data.sections)}
