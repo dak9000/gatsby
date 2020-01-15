@@ -25,7 +25,6 @@ export const StyledButton = styled.a`
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     &:hover {
-        /* background-color: green; */
         cursor: pointer;
         background-color: ${props => props.color ? `${getHoverColor(props.color)}` : ''}
     }
