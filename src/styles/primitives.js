@@ -5,6 +5,7 @@ export const Divider = styled.div`
     height: ${props => `${props.height}px`};
     background-color: ${props => props.color ? `${getColor(props.color)}` : '#000'};
     width: 100%;
+    border-radius: 40px;
     max-width: ${props => props.width === 'full' ? `100%` : `1200px`};
     margin: 0 auto 20px;
 `;
@@ -14,6 +15,7 @@ export const StyledButton = styled.a`
     color: ${props => props.textColor ? `${getColor(props.textColor)}` : 'inherit'};
     font-size: 20px;
     display: flex;
+    margin-bottom: 1.5rem;
     justify-content: center;
     align-content: center;
     padding: 20px 25px;
