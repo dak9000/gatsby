@@ -7,7 +7,6 @@ export const getColor = ({ rgb }) => {
 };
 
 export const getHoverColor = ({ hsl }) => {
-    console.error(hsl);
     if (hsl) {
         const { h, s, l } = hsl;
         const lighten = l >= 0.45;
