@@ -12,10 +12,19 @@ const color = props => {
         </span>
     );
 };
+
+
+const code = props => {
+    const { node: { code } } = props;
+    return (
+        <div dangerouslySetInnerHTML={({ __html: code })} />
+    );
+};
+
 const Wysiwyg = (props) => {
     return (
         <AlignedContainer align={props.align}>
-            <BlockContent blocks={props.content} serializers={{ marks: { color } }} />
+            <BlockContent blocks={props.content} serializers={{ marks: { color }, types: { code } }} />
         </AlignedContainer>
     );
 };
