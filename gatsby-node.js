@@ -10,18 +10,20 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const result = await graphql(`
         {
-            allSanityPage {
-                edges {
-                node {
-                    title
-                    slug {
-                        current
-                        _type
-                    }
-                    _rawSection(resolveReferences: {maxDepth: 5})
-                    }
-                }
-            }
+           allSanityPage {
+    edges {
+      node {
+        _rawSection(resolveReferences: {maxDepth: 5})
+        description
+        indexing
+        slug {
+          current
+          _type
+        }
+        title
+      }
+    }
+  }
         }
   `);
 
@@ -32,11 +34,15 @@ exports.createPages = async ({ graphql, actions }) => {
     const pages = result.data.allSanityPage.edges || [];
     pages.forEach((edge, index) => {
         const path = `/${edge.node.slug.current}`;
-
+        const seo = {
+            description: edge.node.description,
+            indexing: edge.node.indexing,
+            title: edge.node.title,
+        };
         createPage({
             path,
             component: require.resolve('./src/templates/page.js'),
-            context: { slug: edge.node.slug.current, sections: edge.node._rawSection.sections, title: edge.node.title },
+            context: { slug: edge.node.slug.current, sections: edge.node._rawSection.sections, seo },
         });
     });
 };

@@ -27,6 +27,7 @@ export const renderFlexibleContent = (sections, images = null) => {
             console.warn('Warning: section missing _type field');
             return null;
         }
+
         // Note that this variable name (Component) MUST start with a capital
         // letter, or React will not understand what we're trying to do when
         // we try to render it using JSX further down (the return statement)
