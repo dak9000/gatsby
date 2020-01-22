@@ -15,7 +15,10 @@ export const StyledButton = styled.a`
     color: ${props => props.textColor ? `${getColor(props.textColor)}` : 'inherit'};
     font-size: 20px;
     display: flex;
-    margin-bottom: 1.5rem;
+    margin-bottom: ${props => props?.margin?.bottom ? `${props.margin.bottom}px` : '1.5rem'};
+    margin-top: ${props => props?.margin?.top ? `${props.margin.top}px` : '0'};
+    margin-left: ${props => props?.margin?.left ? `${props.margin.left}px` : '0'};
+    margin-right: ${props => props?.margin?.right ? `${props.margin.right}px` : '0'};
     justify-content: center;
     align-content: center;
     padding: 20px 25px;
