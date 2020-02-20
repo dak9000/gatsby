@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { getColor, getHoverColor } from '../utils';
 
 export const Divider = styled.div`
-    height: ${props => `${props.height}px`};
+    height: ${props => `${props.height || 2}px`};
     background-color: ${props => props.color ? `${getColor(props.color)}` : '#000'};
     width: 100%;
     border-radius: 40px;
