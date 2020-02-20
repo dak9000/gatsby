@@ -4,6 +4,7 @@ import { Container, Column } from '../styles/containers';
 import Wysiwyg from '../components/Wysiwyg';
 import GatsbyImage from '../components/GatsbyImage';
 import Button from '../components/Button';
+import Code from '../components/Code';
 
 const components = {
     divider: Divider,
@@ -12,6 +13,7 @@ const components = {
     wysiwyg: Wysiwyg,
     gatsbyImage: GatsbyImage,
     button: Button,
+    code: Code,
 };
 
 let length;
